@@ -11,6 +11,12 @@ type Saiyan struct {
   Power int
 }
 
+/*“In the code below, we say that the type *Saiyan is the receiver of the Super method. */
+func (s *Saiyan) Super(){
+  s.Power += 10000
+}
+
+
 func main() {
   /* Create a new struct and initilze it */
   goku := Saiyan{"Goku", 9000}
@@ -29,6 +35,10 @@ func main() {
   Super_Pointer(goku_pointer)
   fmt.Println(goku_pointer.Power) //19000
 
+  /* Invoke function On Structure */
+  /* Since we are using pointer here, the object is mutabled */
+  goku.Super()
+  fmt.Println(goku.Power) //19000
 }
 
 func Super(s Saiyan){
@@ -38,3 +48,5 @@ func Super(s Saiyan){
 func Super_Pointer(s *Saiyan){
   s.Power += 10000
 }
+
+
