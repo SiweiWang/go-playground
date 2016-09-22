@@ -38,6 +38,7 @@ func main() {
   /* Invoke function On Structure */
   /* Since we are using pointer here, the object is mutabled */
   goku.Super()
+  /* In above code we say that Saiyan is the receiver of the function super */
   fmt.Println(goku.Power) //19000
 }
 
