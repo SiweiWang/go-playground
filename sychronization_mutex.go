@@ -1,28 +1,28 @@
 package main
 
 import (
-  "fmt"
-  "time"
-  "sync"
+	"fmt"
+	"sync"
+	"time"
 )
 
 var (
-  counter = 0
-  lock sync.Mutex
+	counter = 0
+	lock    sync.Mutex
 )
 
 func main() {
-  for i := 0; i < 20; i++ {
-    go incr()
-  }
-  time.Sleep(time.Millisecond * 10)
+	for i := 0; i < 20; i++ {
+		go incr()
+	}
+	time.Sleep(time.Millisecond * 10)
 }
 
 func incr() {
-  lock.Lock()
-  defer lock.Unlock()
-  counter++
-  fmt.Println(counter)
+	lock.Lock()
+	defer lock.Unlock()
+	counter++
+	fmt.Println(counter)
 }
 
 // counter here is thread(gorountine) safe now since we added the mutex before accessing.
